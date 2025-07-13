@@ -1,43 +1,48 @@
-# Cleardeals Lead Scoring 🔍
+# 🚀 Lead Scoring App
 
-This is a full-stack AI-powered Lead Scoring Engine built for Cleardeals AI Internship Assignment.
+A simple yet effective AI-powered Lead Scoring Web App that combines **machine learning** and **rule-based logic** for smarter lead prioritization. Built using **FastAPI**, **React**, and **Scikit-learn**.
 
-## 🔧 Tech Stack
-- **Backend:** FastAPI + Scikit-learn + Joblib
-- **Frontend:** React + Axios
-- **Model:** GradientBoostingClassifier
-- **Data:** Custom lead dataset with fields like age group, credit score, family status, income & comments.
+---
 
-## 🚀 Features
-- Predicts lead intent score (0–100) using ML.
-- Reranks score based on comments using keyword-based rules.
-- Shows results in real-time on a frontend table.
+## 🌟 Features
 
-## 📁 Folder Structure
+- 🎯 Predicts lead conversion probability using a trained ML model
+- 🧠 Applies LLM-style *rule-based reranking* for better business decisions
+- ⚡ FastAPI backend + React frontend
+- 🖥️ Real-time feedback with dynamic scoring display
+
+---
+
+## 🗂️ Project Structure
 
 ```
 
-Cleardeals-lead-scoring/
-├── main.py
-├── retrain\_model.py
-├── lead\_data.csv
-├── lead\_intent\_model.pkl
-├── requirements.txt
-├── frontend/           # React frontend
+lead-scoring/
+├── backend/
+│   ├── app.py               # FastAPI app
+│   ├── lead\_score.pkl       # Trained ML model
+│   ├── utils.py             # Reranker logic
+│   └── requirements.txt
+├── frontend/
 │   ├── public/
-│   └── src/
+│   ├── src/
+│   └── package.json
+└── README.md
 
 ````
 
-## ⚙️ Setup Instructions
+---
 
-### 1. Backend (FastAPI)
+## 🛠️ Setup Instructions
+
+### 🔹 Backend (FastAPI)
 ```bash
+cd backend
 pip install -r requirements.txt
-python -m uvicorn main:app --reload
+uvicorn app:app --reload
 ````
 
-### 2. Frontend (React)
+### 🔹 Frontend (React)
 
 ```bash
 cd frontend
@@ -45,36 +50,39 @@ npm install
 npm start
 ```
 
-## 📡 API Endpoint
+---
 
-`POST /score`
+## 🔍 How It Works
 
-**Request JSON:**
+1. User submits lead form via frontend
+2. Backend `/score-lead` endpoint:
 
-```json
-{
-  "email": "user@example.com",
-  "credit_score": 750,
-  "age_group": "26-35",
-  "family_status": "Single",
-  "income": 55000,
-  "comments": "ready to proceed urgently"
-}
+   * Predicts lead score using `lead_score.pkl`
+   * Applies `utils.py` reranker (e.g., reject blacklisted emails, boost high budgets)
+3. Final score returned with remarks
+
+---
+
+## 🚫 Render Deployment Note
+
+> ❌ Deployment on Render failed due to `scikit-learn==1.1.3` being incompatible with Render's default Python `3.13`.
+
+✅ All code, API, and ML logic are fully working **locally**.
+
+---
+
+## 📬 Feedback & Ideas
+
+This demo app is part of a lead scoring challenge — feel free to extend it with:
+
+* OpenAI/GPT-based reranking
+* Pinecone memory for past leads
+* Scoring history database
+
+---
+
+**Made with ❤️ by Divyansh Gautam**
+
 ```
-
-**Response JSON:**
-
-```json
-{
-  "email": "user@example.com",
-  "initial_score": 68,
-  "reranked_score": 88
-}
-```
-
-## 👨‍💻 Author
-
-**Divyansh Gautam**
-[GitHub Profile](https://github.com/Divyansh-git10)
 
 ---
