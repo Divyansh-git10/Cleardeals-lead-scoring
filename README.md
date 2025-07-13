@@ -82,7 +82,3 @@ This demo app is part of a lead scoring challenge — feel free to extend it wit
 ---
 
 **Made with ❤️ by Divyansh Gautam**
-
-```
-
----
