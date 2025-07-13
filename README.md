@@ -1,162 +1,80 @@
-\# Cleardeals Lead Scoring 🔍
-
-
+# Cleardeals Lead Scoring 🔍
 
 This is a full-stack AI-powered Lead Scoring Engine built for Cleardeals AI Internship Assignment.
 
+## 🔧 Tech Stack
+- **Backend:** FastAPI + Scikit-learn + Joblib
+- **Frontend:** React + Axios
+- **Model:** GradientBoostingClassifier
+- **Data:** Custom lead dataset with fields like age group, credit score, family status, income & comments.
 
+## 🚀 Features
+- Predicts lead intent score (0–100) using ML.
+- Reranks score based on comments using keyword-based rules.
+- Shows results in real-time on a frontend table.
 
-\## 🔧 Tech Stack
-
-\- \*\*Backend:\*\* FastAPI + Scikit-learn + Joblib
-
-\- \*\*Frontend:\*\* React + Axios
-
-\- \*\*Model:\*\* GradientBoostingClassifier
-
-\- \*\*Data:\*\* Custom lead dataset with fields like age group, credit score, family status, income \& comments.
-
-
-
-\## 🚀 Features
-
-\- Predicts lead intent score (0–100) using ML.
-
-\- Reranks score based on comments using keyword-based rules.
-
-\- Shows results in real-time on a frontend table.
-
-
-
-\## 📁 Folder Structure
-
-
+## 📁 Folder Structure
 
 ```
-
-
 
 Cleardeals-lead-scoring/
-
 ├── main.py
-
-├── retrain\\\_model.py
-
-├── lead\\\_data.csv
-
-├── lead\\\_intent\\\_model.pkl
-
+├── retrain\_model.py
+├── lead\_data.csv
+├── lead\_intent\_model.pkl
 ├── requirements.txt
-
 ├── frontend/           # React frontend
-
 │   ├── public/
-
 │   └── src/
 
-
-
 ````
 
+## ⚙️ Setup Instructions
 
-
-\## ⚙️ Setup Instructions
-
-
-
-\### 1. Backend (FastAPI)
-
+### 1. Backend (FastAPI)
 ```bash
-
 pip install -r requirements.txt
-
 python -m uvicorn main:app --reload
-
 ````
 
-
-
-\### 2. Frontend (React)
-
-
+### 2. Frontend (React)
 
 ```bash
-
 cd frontend
-
 npm install
-
 npm start
-
 ```
 
-
-
-\## 📡 API Endpoint
-
-
+## 📡 API Endpoint
 
 `POST /score`
 
-
-
-\*\*Request JSON:\*\*
-
-
+**Request JSON:**
 
 ```json
-
 {
-
-&nbsp; "email": "user@example.com",
-
-&nbsp; "credit\_score": 750,
-
-&nbsp; "age\_group": "26-35",
-
-&nbsp; "family\_status": "Single",
-
-&nbsp; "income": 55000,
-
-&nbsp; "comments": "ready to proceed urgently"
-
+  "email": "user@example.com",
+  "credit_score": 750,
+  "age_group": "26-35",
+  "family_status": "Single",
+  "income": 55000,
+  "comments": "ready to proceed urgently"
 }
-
 ```
 
-
-
-\*\*Response JSON:\*\*
-
-
+**Response JSON:**
 
 ```json
-
 {
-
-&nbsp; "email": "user@example.com",
-
-&nbsp; "initial\_score": 68,
-
-&nbsp; "reranked\_score": 88
-
+  "email": "user@example.com",
+  "initial_score": 68,
+  "reranked_score": 88
 }
-
 ```
 
+## 👨‍💻 Author
 
-
-\## 👨‍💻 Author
-
-
-
-\*\*Divyansh Gautam\*\*
-
-\[GitHub Profile](https://github.com/Divyansh-git10)
-
-
+**Divyansh Gautam**
+[GitHub Profile](https://github.com/Divyansh-git10)
 
 ---
-
-
-
